@@ -1,4 +1,9 @@
 # Django template send & resend
+![Static Badge](https://img.shields.io/badge/MAIL_SENDER-blue)
+![Static Badge](https://img.shields.io/badge/PYTHON-yellow)
+![Static Badge](https://img.shields.io/badge/DJANGO-green)
+![Static Badge](https://img.shields.io/badge/Teravision-blue)
+
 
 ## Descripción
 
@@ -6,16 +11,16 @@ Este proyecto proporciona una plataforma para enviar correos electrónicos diná
 
 ## Requisitos
 
-- Python (versión X.X)
-- Django (versión X.X)
+- Python (versión 3.X)
+- Django (versión 4.X)
 
 ## Configuración del Entorno**
 
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-proyecto.git
-cd tu-proyecto
+git clone https://github.com/iasoloteravision/Django-mail-send-resend.git
+cd pag_din
 ```
 
 2. Instala las dependencias:
@@ -50,8 +55,8 @@ python manage.py runserver
 
 1. Accede a la aplicación en `http://localhost:8000/`.
 2. Selecciona los contenidos y destinatarios deseados.
-3. Envía correos y visualiza el mensaje de éxito.
-4. Explora la funcionalidad de reenviar correos previamente enviados.
+3. Envía correos y visualiza el mensaje de éxito en `http://localhot:8000/pagina_dinamica/`
+4. Explora la funcionalidad de reenviar correos previamente enviados en `http://localhot:8000/reenviar_correos/`
 
 ## Estructura del Proyecto
 
@@ -89,8 +94,4 @@ Este proyecto está bajo la licencia [Nombre de la Licencia]. Consulta el archiv
 ## Contacto
 
 - [Imanol Asolo] - [iasolo@teravisiontech..com]
-- Proyecto: [Enlace al Proyecto en GitHub]
-
----
-
-Este README proporciona una visión general del proyecto, instrucciones para configurar el entorno, información sobre el uso, la estructura del proyecto y detalles sobre cómo contribuir. Asegúrate de personalizarlo según las necesidades específicas de tu proyecto.
+- Proyecto: [https://github.com/iasoloteravision/Django-mail-send-resend.git]
