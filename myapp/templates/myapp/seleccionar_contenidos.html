@@ -1,0 +1,22 @@
+<!-- myapp/templates/myapp/seleccionar_contenidos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Contenidos</title>
+</head>
+<body>
+    <h1>Seleccionar Contenidos</h1>
+    <form method="post" action="{% url 'seleccionar_contenidos' %}">
+        {% csrf_token %}
+        {% for contenido in contenidos %}
+            <label>
+                <input type="checkbox" name="contenidos" value="{{ contenido.id }}">
+                {{ contenido.titulo }}
+            </label><br>
+        {% endfor %}
+        <input type="submit" value="Mostrar Contenidos Seleccionados">
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- myapp/templates/myapp/pagina_dinamica.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Dinámica envio mails</title>
+</head>
+<body>
+    <h1>Envio notificaciones</h1>
+    {% if mensaje_exito %}
+        <p style="color: green;">{{ mensaje_exito }}</p>
+        <form method="get" action="{% url 'pagina_dinamica' %}">
+            <button type="submit">Refrescar</button>
+        </form>
+    {% endif %}
+    <form method="get" action="{% url 'pagina_dinamica' %}">
+        <div>
+            <label for="seleccionados">Seleccionar Contenidos:</label>
+            <select name="seleccionados" id="seleccionados" multiple>
+                {% for contenido in contenidos %}
+                    <option value="{{ contenido.id }}" {% if contenido.id in request.GET.getlist.seleccionados %}selected{% endif %}>{{ contenido.titulo }}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+
+
+        <div>
+            <label for="destinatario">Seleccionar Destinatario:</label>
+            <select name="destinatario" id="destinatario">
+                {% for destinatario in destinatarios %}
+                    <option value="{{ destinatario.id }}" {% if destinatario.id == request.GET.get.destinatario %}selected{% endif %}>{{ destinatario.nombre }} - {{ destinatario.correo }}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+
+        <button type="submit">Enviar Correo Electrónico</button>
+    </form>
+    {% for contenido in contenidos %}
+        <h2>{{ contenido.titulo }}</h2>
+        <p>{{ contenido.cuerpo }}</p>
+    {% endfor %}
+</body>
+</html>

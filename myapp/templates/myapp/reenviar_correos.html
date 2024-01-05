@@ -1,0 +1,50 @@
+<!-- myapp/templates/myapp/reenviar_correos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reenviar Correos</title>
+</head>
+<body>
+    <h1>Reenviar Correos</h1>
+    {% if mensaje_exito %}
+        <p>{{ mensaje_exito }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'reenviar_correos' %}">
+        {% csrf_token %}
+        <div>
+            <label for="correos_seleccionados">Seleccionar Correos:</label>
+            <select name="correos_seleccionados" id="correos_seleccionados" multiple>
+                {% for correo in correos_enviados %}
+                    <option value="{{ correo.id }}">{{ correo.asunto }} - {{ correo.destinatario.nombre }} - {{ correo.destinatario.correo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="destinatario">Seleccionar Destinatario:</label>
+            <select name="destinatario" id="destinatario">
+                {% for destinatario in destinatarios %}
+                    <option value="{{ destinatario.id }}">{{ destinatario.nombre }} - {{ destinatario.correo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Reenviar Correos</button>
+    </form>
+
+    <button onclick="location.reload();">Recargar Página</button>
+
+    <script>
+        function enviarFormulario(event) {
+            // Evitar que el formulario se envíe automáticamente
+            event.preventDefault();
+
+            // Enviar el formulario manualmente
+            document.querySelector('form').submit();
+        }
+    </script>
+</body>
+</html>
